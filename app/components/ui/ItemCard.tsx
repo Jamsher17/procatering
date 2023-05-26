@@ -7,7 +7,7 @@ import { on } from "events";
 
 interface ItemCardProps {
   image: any;
-  onClick?: () => void;
+  onClick: React.MouseEventHandler<HTMLButtonElement>;
 }
 
 const ItemCard: FC<ItemCardProps> = ({ image, onClick, ...props }) => {
