@@ -1,6 +1,6 @@
 "use client";
 
-import { FC, useState } from "react";
+import { FC, useEffect, useState } from "react";
 import Image from "next/image";
 import Button from "./Button";
 
@@ -11,6 +11,7 @@ interface ItemCardProps {
 
 const ItemCard: FC<ItemCardProps> = ({ image, onClick, ...props }) => {
   const [count, setCount] = useState(0);
+
   return (
     <div className="flex flex-1 my-4 gap-3 ">
       <Image

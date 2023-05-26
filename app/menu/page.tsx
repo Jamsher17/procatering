@@ -7,16 +7,13 @@ import image3 from "../../assets/images/baklajani-farshirovanniye.jpg";
 import image4 from "../../assets/images/befstroganof-iz-gov.jpg";
 import { useEffect } from "react";
 
+const tg = (window as any).Telegram?.WebApp;
+
+if (tg) {
+  tg.ready();
+}
+
 const Menu = () => {
-  useEffect(() => {
-    const tg = (window as any).Telegram?.WebApp;
-
-    if (tg) {
-      tg.ready();
-      tg.MainButton.show();
-    }
-  }, []);
-
   return (
     <div className="flex p-4 flex-col items-center">
       <div
