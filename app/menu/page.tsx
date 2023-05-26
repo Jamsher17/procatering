@@ -1,11 +1,22 @@
+"use client";
+
 import ItemCard from "../components/ui/ItemCard";
 import image1 from "../../assets/images/azu-gov.jpg";
 import image2 from "../../assets/images/azu-iz-kur.jpg";
 import image3 from "../../assets/images/baklajani-farshirovanniye.jpg";
 import image4 from "../../assets/images/befstroganof-iz-gov.jpg";
-import Button from "../components/ui/Button";
+import { useEffect } from "react";
 
 const Menu = () => {
+  useEffect(() => {
+    const tg = (window as any).Telegram?.WebApp;
+
+    if (tg) {
+      tg.ready();
+      tg.MainButton.show();
+    }
+  }, []);
+
   return (
     <div className="flex p-4 flex-col items-center">
       <div
@@ -14,7 +25,7 @@ const Menu = () => {
         flex
         flex-1
         justify-center
-        w-[35%]
+        w-
         border-2
         rounded-lg
         border-red-900
@@ -22,7 +33,7 @@ const Menu = () => {
         my-2
         "
       >
-        <h1 className="text-4xl font-serif font-bold text-red-900">
+        <h1 className="text-2xl font-serif font-bold text-red-900">
           МЕНЮ НА СЕГОДНЯ
         </h1>
       </div>

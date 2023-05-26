@@ -12,15 +12,15 @@ interface ItemCardProps {
 const ItemCard: FC<ItemCardProps> = ({ image, onClick, ...props }) => {
   const [count, setCount] = useState(0);
   return (
-    <div className="flex my-4">
+    <div className="flex flex-1 my-4 gap-3 ">
       <Image
         src={image}
         alt="1"
-        height={400}
-        width={400}
+        height={250}
+        width={250}
         className="rounded-md md:shadow-md"
       />
-      <div className="flex flex-col justify-between mx-2">
+      <div className="flex flex-col justify-between">
         <Button
           title="-"
           color="red"
