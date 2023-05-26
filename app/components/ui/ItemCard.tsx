@@ -3,6 +3,7 @@
 import { FC, useEffect, useState } from "react";
 import Image from "next/image";
 import Button from "./Button";
+import { on } from "events";
 
 interface ItemCardProps {
   image: any;
@@ -39,6 +40,7 @@ const ItemCard: FC<ItemCardProps> = ({ image, onClick, ...props }) => {
           color="green"
           onClick={() => {
             setCount(count + 1);
+            onClick;
           }}
         />
       </div>
