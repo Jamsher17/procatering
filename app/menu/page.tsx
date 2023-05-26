@@ -7,13 +7,15 @@ import image3 from "../../assets/images/baklajani-farshirovanniye.jpg";
 import image4 from "../../assets/images/befstroganof-iz-gov.jpg";
 import { useEffect } from "react";
 
-const tg = (window as any).Telegram?.WebApp;
-
-if (tg) {
-  tg.ready();
-}
-
 const Menu = () => {
+  let tg: any;
+  useEffect(() => {
+    tg = (window as any).Telegram?.WebApp;
+
+    if (tg) {
+      tg.ready();
+    }
+  }, []);
   return (
     <div className="flex p-4 flex-col items-center">
       <div
@@ -35,7 +37,12 @@ const Menu = () => {
         </h1>
       </div>
       <div className="flex flex-col items-center justify-evenly my-4">
-        <ItemCard image={image1} />
+        <ItemCard
+          image={image1}
+          onClick={() => {
+            tg.MainButton.show();
+          }}
+        />
         <ItemCard image={image2} />
         <ItemCard image={image1} />
         <ItemCard image={image2} />
