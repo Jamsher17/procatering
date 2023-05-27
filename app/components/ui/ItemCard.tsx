@@ -3,11 +3,10 @@
 import { FC, useEffect, useState } from "react";
 import Image from "next/image";
 import Button from "./Button";
-import { on } from "events";
 
 interface ItemCardProps {
   image: any;
-  onClick: React.MouseEventHandler<HTMLButtonElement>;
+  onClick?: React.MouseEventHandler<HTMLButtonElement>;
 }
 
 const ItemCard: FC<ItemCardProps> = ({ image, onClick, ...props }) => {
@@ -35,14 +34,7 @@ const ItemCard: FC<ItemCardProps> = ({ image, onClick, ...props }) => {
         <div className="flex flex-1 items-center justify-center border-2 border-black rounded-md my-2 font-sans text-2xl font-semibold bg-slate-200">
           {count}
         </div>
-        <Button
-          title="+"
-          color="green"
-          onClick={() => {
-            setCount(count + 1);
-            onClick;
-          }}
-        />
+        <Button title="+" color="green" onClick={onClick} />
       </div>
     </div>
   );

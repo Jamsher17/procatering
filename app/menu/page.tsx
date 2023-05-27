@@ -40,6 +40,7 @@ const Menu = () => {
         <ItemCard
           image={image1}
           onClick={() => {
+            console.log("clicked");
             tg.MainButton.show();
           }}
         />
