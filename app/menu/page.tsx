@@ -13,6 +13,8 @@ const Menu = () => {
     tg = (window as any).Telegram?.WebApp;
     if (tg) {
       tg.ready();
+      tg.MainButton.setText("Заказать!");
+      tg.MainButton.show();
     }
   }, []);
   return (
