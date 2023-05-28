@@ -7,13 +7,20 @@ import Button from "./Button";
 interface ItemCardProps {
   image: any;
   onClick?: () => void;
+  tgObject?: any;
 }
 
-const ItemCard: FC<ItemCardProps> = ({ image, onClick, ...props }) => {
+const ItemCard: FC<ItemCardProps> = ({
+  image,
+  onClick,
+  tgObject,
+  ...props
+}) => {
   const [count, setCount] = useState(0);
 
   return (
     <div className="flex flex-1 my-4 gap-3 ">
+      <h1>{tgObject.colorScheme}</h1>
       <Image
         src={image}
         alt="1"
