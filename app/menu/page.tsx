@@ -7,11 +7,10 @@ import image3 from "../../assets/images/baklajani-farshirovanniye.jpg";
 import image4 from "../../assets/images/befstroganof-iz-gov.jpg";
 import { useEffect } from "react";
 
-const Menu = () => {
-  let tg: any;
-  useEffect(() => {
-    tg = (window as any).Telegram?.WebApp;
+const tg = (window as any).Telegram?.WebApp;
 
+const Menu = () => {
+  useEffect(() => {
     if (tg) {
       tg.ready();
     }
@@ -41,6 +40,7 @@ const Menu = () => {
           image={image1}
           onClick={() => {
             console.log("clicked");
+            tg.MainButton.text("Заказать!");
             tg.MainButton.show();
           }}
         />
