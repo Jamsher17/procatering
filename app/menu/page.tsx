@@ -6,25 +6,16 @@ import image2 from "../../assets/images/azu-iz-kur.jpg";
 import image3 from "../../assets/images/baklajani-farshirovanniye.jpg";
 import image4 from "../../assets/images/befstroganof-iz-gov.jpg";
 import { useEffect, useState } from "react";
-import { IWebApp, ITelegramUser } from "../components/webApp/types";
+import { useTelegram } from "../components/webApp/TelegramProvider";
 import Button from "../components/ui/Button";
 
 const Menu = () => {
-  const [webApp, setWebApp] = useState<IWebApp | null>(null);
-  useEffect(() => {
-    const app = (window as any).Telegram?.WebApp;
-    // (window as any).Telegram?.WebApp?.ready();
-    // (window as any).Telegram?.WebApp?.MainButton.show();
-
-    if (app) {
-      app.ready();
-      setWebApp(app);
-    }
-  }, []);
+  const { webApp, user } = useTelegram();
 
   const closeHandler = () => {
     webApp?.close();
   };
+
   return (
     <div className="flex p-4 flex-col items-center">
       <div

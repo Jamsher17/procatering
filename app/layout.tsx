@@ -1,6 +1,5 @@
-import Head from "next/head";
+import { TelegramProvider } from "./components/webApp/TelegramProvider";
 import "./globals.css";
-import Script from "next/script";
 
 export default function RootLayout({
   children,
@@ -10,12 +9,8 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <div>{children}</div>
+        <TelegramProvider>{children}</TelegramProvider>
       </body>
-      <Script
-        src="https://telegram.org/js/telegram-web-app.js"
-        strategy="afterInteractive"
-      />
     </html>
   );
 }
