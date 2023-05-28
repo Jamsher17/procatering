@@ -8,8 +8,9 @@ import image4 from "../../assets/images/befstroganof-iz-gov.jpg";
 import { useEffect } from "react";
 
 const Menu = () => {
-  const tg = (window as any).Telegram?.WebApp;
+  let tg: any = undefined;
   useEffect(() => {
+    tg = (window as any).Telegram?.WebApp;
     if (tg) {
       tg.ready();
     }
