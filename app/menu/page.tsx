@@ -7,9 +7,8 @@ import image3 from "../../assets/images/baklajani-farshirovanniye.jpg";
 import image4 from "../../assets/images/befstroganof-iz-gov.jpg";
 import { useEffect } from "react";
 
-const tg = (window as any).Telegram?.WebApp;
-
 const Menu = () => {
+  const tg = (window as any).Telegram?.WebApp;
   useEffect(() => {
     if (tg) {
       tg.ready();
