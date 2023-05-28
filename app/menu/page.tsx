@@ -47,7 +47,6 @@ const Menu = () => {
             console.log("clicked");
             webApp?.MainButton.show();
           }}
-          tgObject={webApp}
         />
         <ItemCard image={image2} />
         <ItemCard image={image1} />
