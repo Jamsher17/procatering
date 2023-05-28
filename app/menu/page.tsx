@@ -13,7 +13,8 @@ const Menu = () => {
   const { webApp, user } = useTelegram();
 
   const closeHandler = () => {
-    webApp?.close();
+    webApp?.MainButton.setText("WORKING");
+    webApp?.MainButton.show();
   };
 
   return (

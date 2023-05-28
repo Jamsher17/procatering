@@ -43,6 +43,7 @@ export interface IWebApp {
     isProgressVisible: boolean;
     isActive: boolean;
     show: () => void;
+    setText: (text: string) => void;
   };
   HapticFeedback: any;
   close: () => void;
