@@ -40,7 +40,8 @@ const Menu = () => {
           image={image1}
           onClick={() => {
             console.log("clicked");
-            tg.MainButton.text("Заказать!");
+            console.log(tg.initData, tg.colorScheme);
+            tg.MainButton.setText("Заказать!");
             tg.MainButton.show();
           }}
         />
