@@ -7,6 +7,7 @@ import image3 from "../../assets/images/baklajani-farshirovanniye.jpg";
 import image4 from "../../assets/images/befstroganof-iz-gov.jpg";
 import { useEffect, useState } from "react";
 import { IWebApp, ITelegramUser } from "../components/webApp/types";
+import Button from "../components/ui/Button";
 
 const Menu = () => {
   const [webApp, setWebApp] = useState<IWebApp | null>(null);
@@ -20,6 +21,10 @@ const Menu = () => {
       setWebApp(app);
     }
   }, []);
+
+  const closeHandler = () => {
+    webApp?.close();
+  };
   return (
     <div className="flex p-4 flex-col items-center">
       <div
@@ -41,13 +46,14 @@ const Menu = () => {
         </h1>
       </div>
       <div className="flex flex-col items-center justify-evenly my-4">
-        <ItemCard
+        <Button color="red" onClick={closeHandler} />
+        {/* <ItemCard
           image={image1}
           onClick={() => {
             console.log("clicked");
-            webApp?.MainButton.show();
+            webApp?.close();
           }}
-        />
+        /> */}
         <ItemCard image={image2} />
         <ItemCard image={image1} />
         <ItemCard image={image2} />
