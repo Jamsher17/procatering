@@ -5,17 +5,19 @@ import image1 from "../../assets/images/azu-gov.jpg";
 import image2 from "../../assets/images/azu-iz-kur.jpg";
 import image3 from "../../assets/images/baklajani-farshirovanniye.jpg";
 import image4 from "../../assets/images/befstroganof-iz-gov.jpg";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import { IWebApp, ITelegramUser } from "../components/webApp/types";
 
 const Menu = () => {
-  let tg: any = undefined;
+  const [webApp, setWebApp] = useState<IWebApp | null>(null);
   useEffect(() => {
-    tg = (window as any).Telegram?.WebApp;
+    const app = (window as any).Telegram?.WebApp;
     // (window as any).Telegram?.WebApp?.ready();
     // (window as any).Telegram?.WebApp?.MainButton.show();
 
-    if (tg) {
-      tg.ready();
+    if (app) {
+      app.ready();
+      setWebApp(app);
     }
   }, []);
   return (
@@ -43,11 +45,9 @@ const Menu = () => {
           image={image1}
           onClick={() => {
             console.log("clicked");
-            // console.log(tg.initData, tg.colorScheme);
-            // tg.MainButton.setText("Заказать!");
-            // tg.MainButton.show();
+            webApp?.MainButton.show();
           }}
-          tgObject={tg}
+          tgObject={webApp}
         />
         <ItemCard image={image2} />
         <ItemCard image={image1} />
