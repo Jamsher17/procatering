@@ -46,7 +46,7 @@ const Menu = () => {
         </h1>
       </div>
       <div className="flex flex-col items-center justify-evenly my-4">
-        <Button color="red" onClick={closeHandler} />
+        <Button title="PRESS" color="red" onClick={closeHandler} />
         {/* <ItemCard
           image={image1}
           onClick={() => {
