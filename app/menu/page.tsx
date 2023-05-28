@@ -10,12 +10,15 @@ import { useEffect } from "react";
 const Menu = () => {
   let tg: any = undefined;
   useEffect(() => {
-    tg = (window as any).Telegram?.WebApp;
-    if (tg) {
-      tg.ready();
-      tg.MainButton.setText("Заказать!");
-      tg.MainButton.show();
-    }
+    // tg = (window as any).Telegram?.WebApp;
+    (window as any).Telegram?.WebApp?.ready();
+    (window as any).Telegram?.WebApp?.MainButton.show();
+
+    // if (tg) {
+    //   tg.ready();
+    //   tg.MainButton.setText("Заказать!");
+    //   tg.MainButton.show();
+    // }
   }, []);
   return (
     <div className="flex p-4 flex-col items-center">
@@ -42,9 +45,9 @@ const Menu = () => {
           image={image1}
           onClick={() => {
             console.log("clicked");
-            console.log(tg.initData, tg.colorScheme);
-            tg.MainButton.setText("Заказать!");
-            tg.MainButton.show();
+            // console.log(tg.initData, tg.colorScheme);
+            // tg.MainButton.setText("Заказать!");
+            // tg.MainButton.show();
           }}
         />
         <ItemCard image={image2} />
