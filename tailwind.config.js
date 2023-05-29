@@ -10,6 +10,11 @@ module.exports = {
     extend: {
       fontFamily: {
         menu: "Roboto Slab",
+        forum: ["Forum", "cursive"],
+      },
+      backgroundImage: {
+        menu: "url('../assets/images/background_test.jpg')",
+        header: "url('../assets/images/header-background.jpg')",
       },
     },
   },
