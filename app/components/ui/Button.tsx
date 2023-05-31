@@ -2,12 +2,12 @@ import { ButtonHTMLAttributes, FC } from "react";
 import { cva, VariantProps } from "class-variance-authority";
 
 const buttonVariants = cva(
-  "flex flex-1 justify-center items-center rounded-md border border-red-900 w-16 bg-yellow-5 font-serif text-2xl font-bold",
+  "flex flex-1 justify-center items-center rounded-md border border-white w-16  font-serif text-2xl font-bold shadow-md",
   {
     variants: {
       color: {
-        green: "",
-        red: "",
+        green: "bg-green-500 text-white",
+        red: "bg-red-500 text-white",
       },
     },
     defaultVariants: {

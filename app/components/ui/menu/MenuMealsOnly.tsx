@@ -1,6 +1,7 @@
 //components
 import Image from "next/image";
 import ItemCard from "./ItemCard";
+import { Divider } from "@mui/material";
 
 //assets
 import logo from "@images/logo.png";
@@ -39,11 +40,13 @@ const MenuMealsOnly = () => {
           width={100}
           className="drop-shadow-lg"
         />
-        <div className="flex flex-col items-center justify-center">
+        <div className="flex flex-col w-[100%] items-center justify-center border-b pb-2 shadow-[0_2px_2px_-2px_#333]">
           <h1 className="text-2xl font-serif text-red-900 md:text-3xl">
             МЕНЮ НА СЕГОДНЯ
           </h1>
-          <h1>{`Счет: ${totalBill} сум`}</h1>
+          <h1 className="text-xs md:text-sm italic text-green-900">
+            *в ваш заказ включаются порция хлеба и напиток
+          </h1>
         </div>
       </div>
       <div className="flex flex-col items-center justify-evenly ">
