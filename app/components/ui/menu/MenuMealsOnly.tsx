@@ -19,10 +19,14 @@ import { useEffect, useState } from "react";
 //redux
 import { RootState } from "../../../../redux/store";
 import { useSelector } from "react-redux";
+import { twMerge } from "tailwind-merge";
 
 const MenuMealsOnly = () => {
   const totalBill = useSelector((state: RootState) => state.billCounter.bill);
   const { webApp } = useTelegram();
+  const mode = webApp?.colorScheme;
+
+  const header_bg_class = mode === "dark" ? "bg-sky-800" : "bg-amber-50";
 
   useEffect(() => {
     if (totalBill > 0) {
@@ -34,8 +38,13 @@ const MenuMealsOnly = () => {
   }, [totalBill]);
 
   return (
-    <div className="flex flex-col bg-[var(--tg-theme-bg-color)]">
-      <div className="flex flex-col w-[100%] items-center bg-amber-50 sticky top-0 z-1">
+    <div className="flex flex-col bg-[var(--tg-theme-bg-color)] ">
+      <div
+        className={twMerge(
+          "flex flex-col w-[100%] items-center sticky top-0 z-1",
+          header_bg_class
+        )}
+      >
         <Image
           src={logo}
           alt="logo"
