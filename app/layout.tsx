@@ -1,5 +1,8 @@
-import { TelegramProvider } from "./components/webApp/TelegramProvider";
 import "./globals.css";
+
+//providers
+import { TelegramProvider } from "../hooks/webApp/TelegramProvider";
+import { ReduxProvider } from "../redux/provider";
 
 export default function RootLayout({
   children,
@@ -9,7 +12,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <TelegramProvider>{children}</TelegramProvider>
+        <ReduxProvider>
+          <TelegramProvider>{children}</TelegramProvider>
+        </ReduxProvider>
       </body>
     </html>
   );

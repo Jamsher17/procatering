@@ -1,15 +1,21 @@
 "use client";
 
-import { FC, useEffect, useState } from "react";
+import { FC, useState } from "react";
+
+//components
 import Image from "next/image";
 import Button from "../Button";
 
+//redux
+import { useDispatch } from "react-redux";
+import { add, subtract } from "../../../../redux/billCounterSlice";
+
 interface ItemCardProps {
   image: any;
-  onClick?: () => void;
 }
 
-const ItemCard: FC<ItemCardProps> = ({ image, onClick, ...props }) => {
+const ItemCard: FC<ItemCardProps> = ({ image, ...props }) => {
+  const dispatch = useDispatch();
   const [count, setCount] = useState(0);
 
   return (
@@ -30,6 +36,7 @@ const ItemCard: FC<ItemCardProps> = ({ image, onClick, ...props }) => {
             onClick={() => {
               if (count > 0) {
                 setCount(count - 1);
+                dispatch(subtract(24000));
               }
             }}
           />
@@ -41,7 +48,7 @@ const ItemCard: FC<ItemCardProps> = ({ image, onClick, ...props }) => {
             color="green"
             onClick={() => {
               setCount(count + 1);
-              onClick?.();
+              dispatch(add(24000));
             }}
           />
         </div>
