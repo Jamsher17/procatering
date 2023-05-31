@@ -32,7 +32,7 @@ const MenuMealsOnly = () => {
 
   return (
     <div className="flex flex-col">
-      <div className="flex flex-col w-[100%] items-center bg-white sticky top-0 z-1">
+      <div className="flex flex-col w-[100%] items-center bg-amber-50 sticky top-0 z-1">
         <Image
           src={logo}
           alt="logo"

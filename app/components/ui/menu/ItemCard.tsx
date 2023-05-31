@@ -64,7 +64,7 @@ const ItemCard: FC<ItemCardProps> = ({
               }
             }}
           />
-          <div className="flex flex-1 items-center justify-center border-2 border-white rounded-md my-2 font-serif text-2xl bg-slate-200">
+          <div className="flex flex-1 items-center justify-center border-2 border-white rounded-xl my-2 font-serif text-2xl bg-slate-100">
             {count}
           </div>
           <Button
