@@ -26,7 +26,11 @@ const MenuMealsOnly = () => {
   const { webApp } = useTelegram();
   const mode = webApp?.colorScheme;
 
-  const header_bg_class = mode === "dark" ? "bg-sky-800" : "bg-amber-50";
+  let header_bg_class;
+
+  useEffect(() => {
+    header_bg_class = mode === "dark" ? "bg-sky-800" : "bg-amber-50";
+  }, [mode]);
 
   useEffect(() => {
     if (totalBill > 0) {
