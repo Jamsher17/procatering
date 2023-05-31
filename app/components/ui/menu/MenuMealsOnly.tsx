@@ -1,7 +1,10 @@
 //components
 import Image from "next/image";
 import ItemCard from "./ItemCard";
-import { Divider } from "@mui/material";
+
+//utils
+// import { cva, VariantProps } from "class-variance-authority";
+// import { twMerge } from "tailwind-merge";
 
 //assets
 import logo from "@images/logo.png";
@@ -31,7 +34,7 @@ const MenuMealsOnly = () => {
   }, [totalBill]);
 
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col bg-[var(--tg-theme-bg-color)]">
       <div className="flex flex-col w-[100%] items-center bg-amber-50 sticky top-0 z-1">
         <Image
           src={logo}
