@@ -24,13 +24,20 @@ import { twMerge } from "tailwind-merge";
 const MenuMealsOnly = () => {
   const totalBill = useSelector((state: RootState) => state.billCounter.bill);
   const { webApp } = useTelegram();
-  const mode = webApp?.colorScheme;
 
-  let header_bg_class;
+  const [header_bg, setHeader_bg] = useState<"bg-sky-800" | "bg-amber-50">();
+
+  const themeChangeHandler = () => {
+    webApp?.colorScheme === "dark"
+      ? setHeader_bg("bg-sky-800")
+      : setHeader_bg("bg-amber-50");
+  };
+
+  webApp?.onEvent("themeChanged", themeChangeHandler);
 
   useEffect(() => {
-    header_bg_class = mode === "dark" ? "bg-sky-800" : "bg-amber-50";
-  }, [mode]);
+    themeChangeHandler();
+  }, []);
 
   useEffect(() => {
     if (totalBill > 0) {
@@ -46,7 +53,7 @@ const MenuMealsOnly = () => {
       <div
         className={twMerge(
           "flex flex-col w-[100%] items-center sticky top-0 z-1",
-          header_bg_class
+          header_bg
         )}
       >
         <Image

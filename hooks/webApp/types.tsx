@@ -32,6 +32,7 @@ export interface IWebApp {
   isClosingConfirmationEnabled: boolean;
   headerColor: string;
   backgroundColor: string;
+  onEvent: (event: string, eventHandler: () => void) => void;
   BackButton: {
     isVisible: boolean;
   };
