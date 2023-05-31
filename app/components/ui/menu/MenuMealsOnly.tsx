@@ -25,7 +25,9 @@ const MenuMealsOnly = () => {
   const totalBill = useSelector((state: RootState) => state.billCounter.bill);
   const { webApp } = useTelegram();
 
-  const [header_bg, setHeader_bg] = useState<"bg-sky-800" | "bg-amber-50">();
+  const [header_bg, setHeader_bg] = useState<"bg-sky-800" | "bg-amber-50">(
+    webApp?.colorScheme === "dark" ? "bg-sky-800" : "bg-amber-50"
+  );
 
   const themeChangeHandler = () => {
     webApp?.colorScheme === "dark"
@@ -34,10 +36,6 @@ const MenuMealsOnly = () => {
   };
 
   webApp?.onEvent("themeChanged", themeChangeHandler);
-
-  useEffect(() => {
-    themeChangeHandler();
-  }, []);
 
   useEffect(() => {
     if (totalBill > 0) {
