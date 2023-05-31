@@ -27,7 +27,7 @@ interface ButtonProps
 const Button: FC<ButtonProps> = ({ className, title, color, ...props }) => {
   return (
     <button className={buttonVariants({ color, className })} {...props}>
-      {title}
+      <h1 className="dark:text-white">{title}</h1>
     </button>
   );
 };
