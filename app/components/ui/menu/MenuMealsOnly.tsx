@@ -1,3 +1,5 @@
+"use client";
+
 //components
 import Image from "next/image";
 import ItemCard from "./ItemCard";
@@ -23,15 +25,14 @@ import { useSelector } from "react-redux";
 const MenuMealsOnly = () => {
   const totalBill = useSelector((state: RootState) => state.billCounter.bill);
   const { webApp } = useTelegram();
-  // const mode = webApp?.colorScheme ?? "light";
 
-  const [mode, setMode] = useState("dark");
+  const [mode, setMode] = useState(webApp?.colorScheme);
 
-  // const themeChangeHandler = () => {
-  //   setMode(webApp?.colorScheme);
-  // };
+  const themeChangeHandler = () => {
+    setMode(webApp?.colorScheme);
+  };
 
-  // webApp?.onEvent("themeChanged", themeChangeHandler);
+  webApp?.onEvent("themeChanged", themeChangeHandler);
 
   useEffect(() => {
     if (totalBill > 0) {
