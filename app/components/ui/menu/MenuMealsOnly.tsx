@@ -25,7 +25,7 @@ const MenuMealsOnly = () => {
   const { webApp } = useTelegram();
   // const mode = webApp?.colorScheme ?? "light";
 
-  const [mode, setMode] = useState(webApp?.colorScheme);
+  const [mode, setMode] = useState("dark");
 
   // const themeChangeHandler = () => {
   //   setMode(webApp?.colorScheme);
