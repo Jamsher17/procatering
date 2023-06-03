@@ -54,7 +54,6 @@ const ItemCard: FC<ItemCardProps> = ({
   const { webApp } = useTelegram();
 
   const mode = webApp?.colorScheme ?? "light";
-  const priceBg = mode === "light" ? "bg-lbutton" : "bg-dbutton";
 
   return (
     <div className={itemCardVariants({ border, className })} {...props}>
@@ -118,7 +117,7 @@ const ItemCard: FC<ItemCardProps> = ({
       <div
         className={twMerge([
           "flex flex-1 rounded-md items-center justify-center h-7 w-[200px] mt-2 shadow-md",
-          priceBg,
+          mode === "light" ? "bg-lbutton" : "bg-dbutton",
         ])}
       >
         <h1 className="flex font-serif text-white">32.000 сум</h1>
