@@ -36,9 +36,7 @@ const MenuMealsOnly = () => {
       : setHeader_bg("bg-lmain");
   };
 
-  useEffect(() => {
-    webApp?.onEvent("themeChanged", themeChangeHandler);
-  }, []);
+  webApp?.onEvent("themeChanged", themeChangeHandler);
 
   useEffect(() => {
     if (totalBill > 0) {
