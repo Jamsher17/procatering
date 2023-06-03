@@ -21,18 +21,23 @@ import { useEffect, useState } from "react";
 //redux
 import { RootState } from "../../../../redux/store";
 import { useSelector } from "react-redux";
+import { IWebApp } from "../../../../hooks/webApp/types";
 
 const MenuMealsOnly = () => {
   const totalBill = useSelector((state: RootState) => state.billCounter.bill);
   const { webApp } = useTelegram();
 
-  const [mode, setMode] = useState(webApp?.colorScheme);
+  const [mode, setMode] = useState<IWebApp["colorScheme"]>();
 
   const themeChangeHandler = () => {
     setMode(webApp?.colorScheme);
   };
 
   webApp?.onEvent("themeChanged", themeChangeHandler);
+
+  useEffect(() => {
+    setMode(webApp?.colorScheme);
+  }, []);
 
   useEffect(() => {
     if (totalBill > 0) {
