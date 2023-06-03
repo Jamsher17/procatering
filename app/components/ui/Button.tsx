@@ -2,7 +2,7 @@ import { ButtonHTMLAttributes, FC } from "react";
 import { cva, VariantProps } from "class-variance-authority";
 
 const buttonVariants = cva(
-  "flex flex-1 justify-center items-center rounded-xl w-16  font-serif text-2xl font-bold shadow-md bg-lbutton",
+  "flex flex-1 justify-center items-center rounded-xl w-16  font-serif text-2xl font-bold shadow-md",
   {
     variants: {
       mode: {
@@ -23,9 +23,7 @@ interface ButtonProps
 const Button: FC<ButtonProps> = ({ className, title, mode, ...props }) => {
   return (
     <button className={buttonVariants({ mode, className })} {...props}>
-      <h1 className="text-white">
-        {title}, {mode}
-      </h1>
+      <h1 className="text-white">{title}</h1>
     </button>
   );
 };
