@@ -27,7 +27,8 @@ const MenuMealsOnly = () => {
   const totalBill = useSelector((state: RootState) => state.billCounter.bill);
   const { webApp } = useTelegram();
 
-  const mode = webApp?.colorScheme;
+  const mode = webApp?.colorScheme ?? "light";
+  const tg_bg = webApp?.themeParams.bg_color;
   const [m, setM] = useState(mode);
 
   const themeChangeHandler = () => {
@@ -51,8 +52,8 @@ const MenuMealsOnly = () => {
         className={twMerge(
           "flex flex-col w-[100%] items-center sticky top-0 z-50 pb-2 ",
           mode == "dark"
-            ? "bg-dmain shadow-[0px_5px_5px_rgba(0,0,0,0.8)]"
-            : "bg-lmain shadow-[0px_5px_5px_rgba(0,0,0,0.4)]"
+            ? "bg-gradient-to-b from-[var(--tg-theme-bg-color)] to-dmain shadow-[0px_5px_5px_rgba(0,0,0,0.8)]"
+            : "bg-gradient-to-b from-[white] to-lmain shadow-[0px_5px_5px_rgba(0,0,0,0.4)]"
         )}
       >
         <Image
