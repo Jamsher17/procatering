@@ -2,12 +2,20 @@
 
 import { FC, useState } from "react";
 
+//hooks
+import { useTelegram } from "../../../../hooks/webApp/TelegramProvider";
+
 //utils
 import { cva, VariantProps } from "class-variance-authority";
+import { twMerge } from "tailwind-merge";
 
 //components
 import Image from "next/image";
 import Button from "../Button";
+import ReactCardFlip from "react-card-flip";
+
+//assets
+import desc_bg from "@images/desc_background.jpg";
 
 //redux
 import { useDispatch } from "react-redux";
@@ -40,23 +48,53 @@ const ItemCard: FC<ItemCardProps> = ({
   ...props
 }) => {
   const dispatch = useDispatch();
+
   const [count, setCount] = useState(0);
+  const { webApp } = useTelegram();
+  const [isFlipped, setIsFlipped] = useState(false);
+
+  const mode = webApp?.colorScheme ?? "light";
+  const priceBg = mode === "light" ? "bg-lbutton" : "bg-dbutton";
 
   return (
     <div className={itemCardVariants({ border, className })} {...props}>
       <div className="flex flex-1 gap-3 ">
-        <Image
-          src={image}
-          alt="1"
-          height={200}
-          width={200}
-          className="rounded-md md:shadow-md"
-        />
+        <ReactCardFlip isFlipped={isFlipped} flipDirection="horizontal">
+          <div
+            style={{}}
+            onClick={() => {
+              setIsFlipped(true);
+            }}
+          >
+            <Image
+              src={image}
+              alt="1"
+              height={200}
+              width={200}
+              className="rounded-md md:shadow-md"
+            />
+          </div>
+          <div
+            className="flex flex-col justify-center items-center"
+            onClick={() => {
+              setIsFlipped(false);
+            }}
+          >
+            <h1 className="absolute z-1 text-white font-forum">ОПИСАНИЕ</h1>
+            <Image
+              src={desc_bg}
+              alt="1"
+              height={200}
+              width={200}
+              className="rounded-md md:shadow-md"
+            />
+          </div>
+        </ReactCardFlip>
 
         <div className="flex flex-col justify-between">
           <Button
             title="-"
-            color="red"
+            mode={mode}
             onClick={() => {
               if (count > 0) {
                 setCount(count - 1);
@@ -69,7 +107,7 @@ const ItemCard: FC<ItemCardProps> = ({
           </div>
           <Button
             title="+"
-            color="green"
+            mode={mode}
             onClick={() => {
               setCount(count + 1);
               dispatch(add(32000));
@@ -77,7 +115,14 @@ const ItemCard: FC<ItemCardProps> = ({
           />
         </div>
       </div>
-      <h1 className="flex font-serif text-green-900">32.000 сум</h1>
+      <div
+        className={twMerge([
+          "flex flex-1 rounded-md items-center justify-center h-7 w-[200px] mt-2 shadow-md",
+          priceBg,
+        ])}
+      >
+        <h1 className="flex font-serif text-white">32.000 сум</h1>
+      </div>
     </div>
   );
 };

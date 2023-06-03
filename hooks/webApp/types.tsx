@@ -16,7 +16,7 @@ export interface IWebApp {
   };
   version: string;
   platform: string;
-  colorScheme: string;
+  colorScheme: "dark" | "light";
   themeParams: {
     link_color: string;
     button_color: string;

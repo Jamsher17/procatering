@@ -24,18 +24,21 @@ import { twMerge } from "tailwind-merge";
 const MenuMealsOnly = () => {
   const totalBill = useSelector((state: RootState) => state.billCounter.bill);
   const { webApp } = useTelegram();
+  const mode = webApp?.colorScheme;
 
-  const [header_bg, setHeader_bg] = useState<"bg-sky-800" | "bg-amber-50">(
-    webApp?.colorScheme === "dark" ? "bg-sky-800" : "bg-amber-50"
+  const [header_bg, setHeader_bg] = useState(
+    mode === "dark" ? "bg-dmain" : "bg-lmain"
   );
 
   const themeChangeHandler = () => {
     webApp?.colorScheme === "dark"
-      ? setHeader_bg("bg-sky-800")
-      : setHeader_bg("bg-amber-50");
+      ? setHeader_bg("bg-dmain")
+      : setHeader_bg("bg-lmain");
   };
 
-  webApp?.onEvent("themeChanged", themeChangeHandler);
+  useEffect(() => {
+    webApp?.onEvent("themeChanged", themeChangeHandler);
+  }, []);
 
   useEffect(() => {
     if (totalBill > 0) {
@@ -47,10 +50,10 @@ const MenuMealsOnly = () => {
   }, [totalBill]);
 
   return (
-    <div className="flex flex-col bg-[var(--tg-theme-bg-color)] ">
+    <div className="flex flex-col ">
       <div
         className={twMerge(
-          "flex flex-col w-[100%] items-center sticky top-0 z-1",
+          "flex flex-col w-[100%] items-center sticky top-0 z-50",
           header_bg
         )}
       >
@@ -59,13 +62,13 @@ const MenuMealsOnly = () => {
           alt="logo"
           height={100}
           width={100}
-          className="drop-shadow-lg"
+          className="drop-shadow-[0px_5px_5px_rgba(0,0,0,0.4)]"
         />
         <div className="flex flex-col w-[100%] items-center justify-center border-b pb-2 shadow-[0_2px_2px_-2px_#333]">
-          <h1 className="text-2xl font-serif text-red-900 md:text-3xl">
+          <h1 className="text-2xl font-serif text-dmain md:text-3xl">
             МЕНЮ НА СЕГОДНЯ
           </h1>
-          <h1 className="text-xs md:text-sm italic text-green-900">
+          <h1 className="text-xs md:text-sm italic text-black">
             *в ваш заказ включаются порция хлеба и напиток
           </h1>
         </div>

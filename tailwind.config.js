@@ -8,6 +8,12 @@ module.exports = {
   ],
   theme: {
     extend: {
+      colors: {
+        lmain: "#F0F0F0",
+        lbutton: "#F95738",
+        dmain: "#C83209",
+        dbutton: "#455A6E",
+      },
       fontFamily: {
         menu: "Roboto Slab",
         forum: ["Forum", "cursive"],
