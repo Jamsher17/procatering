@@ -5,12 +5,6 @@ const buttonVariants = cva(
   "flex flex-1 justify-center items-center rounded-xl w-16  font-serif text-2xl font-bold shadow-md bg-lbutton",
   {
     variants: {
-      color: {
-        green: "",
-        red: "",
-        // green: "bg-green-500 text-white",
-        // red: "bg-red-500 text-white",
-      },
       mode: {
         light: "bg-lbutton",
         dark: "bg-dbutton",
@@ -23,20 +17,15 @@ const buttonVariants = cva(
 interface ButtonProps
   extends ButtonHTMLAttributes<HTMLButtonElement>,
     VariantProps<typeof buttonVariants> {
-  color?: "green" | "red";
   mode?: "light" | "dark";
 }
 
-const Button: FC<ButtonProps> = ({
-  className,
-  title,
-  mode,
-  color,
-  ...props
-}) => {
+const Button: FC<ButtonProps> = ({ className, title, mode, ...props }) => {
   return (
-    <button className={buttonVariants({ color, mode, className })} {...props}>
-      <h1 className="text-white">{title}</h1>
+    <button className={buttonVariants({ mode, className })} {...props}>
+      <h1 className="text-white">
+        {title}, {mode}
+      </h1>
     </button>
   );
 };
