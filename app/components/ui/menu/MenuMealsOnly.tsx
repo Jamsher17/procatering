@@ -23,9 +23,9 @@ import { useSelector } from "react-redux";
 const MenuMealsOnly = () => {
   const totalBill = useSelector((state: RootState) => state.billCounter.bill);
   const { webApp } = useTelegram();
-  const mode = webApp?.colorScheme ?? "light";
+  // const mode = webApp?.colorScheme ?? "light";
 
-  // const [modeT, setModeT] = useState(webApp?.colorScheme);
+  const [mode, setMode] = useState(webApp?.colorScheme);
 
   // const themeChangeHandler = () => {
   //   setMode(webApp?.colorScheme);
