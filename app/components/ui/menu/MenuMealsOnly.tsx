@@ -49,8 +49,10 @@ const MenuMealsOnly = () => {
     <div className="flex flex-col ">
       <div
         className={twMerge(
-          "flex flex-col w-[100%] items-center sticky top-0 z-50 pb-2 shadow-[0_2px_2px_-2px_#333]",
-          mode == "dark" ? "bg-dmain" : "bg-lmain"
+          "flex flex-col w-[100%] items-center sticky top-0 z-50 pb-2 ",
+          mode == "dark"
+            ? "bg-dmain shadow-[0px_5px_5px_rgba(0,0,0,0.8)]"
+            : "bg-lmain shadow-[0px_5px_5px_rgba(0,0,0,0.4)]"
         )}
       >
         <Image
