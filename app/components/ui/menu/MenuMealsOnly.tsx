@@ -52,7 +52,7 @@ const MenuMealsOnly = () => {
         className={twMerge(
           "flex flex-col w-[100%] items-center sticky top-0 z-50 pb-2 ",
           mode == "dark"
-            ? "bg-gradient-to-b from-[var(--tg-theme-bg-color)] from-33% to-dmain to-33% shadow-[0px_5px_5px_rgba(0,0,0,0.8)]"
+            ? "bg-gradient-to-b from-[var(--tg-theme-bg-color)] from-[33%] to-dmain to-[33%] shadow-[0px_5px_5px_rgba(0,0,0,0.8)]"
             : "bg-gradient-to-b from-[white] from-[33%] to-lmain to-[33%] shadow-[0px_5px_5px_rgba(0,0,0,0.4)]"
         )}
       >
