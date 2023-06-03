@@ -23,16 +23,11 @@ import { useSelector } from "react-redux";
 const MenuMealsOnly = () => {
   const totalBill = useSelector((state: RootState) => state.billCounter.bill);
   const { webApp } = useTelegram();
-  const mode = webApp?.colorScheme;
 
-  const [header_bg, setHeader_bg] = useState(
-    mode === "dark" ? "bg-dmain" : "bg-lmain"
-  );
+  const [mode, setMode] = useState(webApp?.colorScheme);
 
   const themeChangeHandler = () => {
-    webApp?.colorScheme === "dark"
-      ? setHeader_bg("bg-dmain")
-      : setHeader_bg("bg-lmain");
+    setMode(webApp?.colorScheme);
   };
 
   webApp?.onEvent("themeChanged", themeChangeHandler);
@@ -51,7 +46,7 @@ const MenuMealsOnly = () => {
       <div
         className={twMerge(
           "flex flex-col w-[100%] items-center sticky top-0 z-50",
-          header_bg
+          mode === "dark" ? "bg-dmain" : "bg-lmain"
         )}
       >
         <Image
@@ -65,9 +60,7 @@ const MenuMealsOnly = () => {
           <h1 className={twMerge(["text-2xl font-serif md:text-3xl"])}>
             МЕНЮ НА СЕГОДНЯ
           </h1>
-          <h1>
-            {mode},{header_bg}
-          </h1>
+          <h1>{mode}</h1>
           <h1 className="text-xs md:text-sm italic text-black">
             *в ваш заказ включаются порция хлеба и напиток
           </h1>
