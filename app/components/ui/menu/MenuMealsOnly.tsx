@@ -21,14 +21,14 @@ import { useEffect, useState } from "react";
 //redux
 import { RootState } from "../../../../redux/store";
 import { useSelector } from "react-redux";
-import { IWebApp } from "../../../../hooks/webApp/types";
 
 const MenuMealsOnly = () => {
   const totalBill = useSelector((state: RootState) => state.billCounter.bill);
   const { webApp } = useTelegram();
 
-  const mode = webApp?.colorScheme ?? "light";
-  const tg_bg = webApp?.themeParams.bg_color;
+  const mode = webApp?.colorScheme;
+  const bg_color = "#C83209";
+  webApp?.setHeaderColor(bg_color);
   const [m, setM] = useState(mode);
 
   const themeChangeHandler = () => {
@@ -52,8 +52,10 @@ const MenuMealsOnly = () => {
         className={twMerge(
           "flex flex-col w-[100%] items-center sticky top-0 z-50 pb-2 ",
           mode == "dark"
-            ? "bg-gradient-to-b from-[var(--tg-theme-bg-color)] from-[33%] to-dmain to-[33%] shadow-[0px_5px_5px_rgba(0,0,0,0.8)]"
-            : "bg-gradient-to-b from-[white] from-[33%] to-lmain to-[33%] shadow-[0px_5px_5px_rgba(0,0,0,0.4)]"
+            ? "bg-dmain shadow-[0px_5px_5px_rgba(0,0,0,0.8)]"
+            : "bg-lmain shadow-[0px_5px_5px_rgba(0,0,0,0.4)]"
+          // ? "bg-gradient-to-b from-[var(--tg-theme-bg-color)] from-[33%] to-dmain to-[33%] shadow-[0px_5px_5px_rgba(0,0,0,0.8)]"
+          // : "bg-gradient-to-b from-[white] from-[33%] to-lmain to-[33%] shadow-[0px_5px_5px_rgba(0,0,0,0.4)]"
         )}
       >
         <Image
@@ -77,11 +79,15 @@ const MenuMealsOnly = () => {
           </h1>
         </div>
       </div>
-      <div className="flex flex-col items-center justify-evenly ">
+      <div className="flex flex-col items-center justify-evenly pt-2">
         <ItemCard image={image1} />
+        <div className="border border-b-gray-300 w-52"></div>
         <ItemCard image={image2} />
+        <div className="border border-b-gray-300 w-52"></div>
         <ItemCard image={image3} />
+        <div className="border border-b-gray-300 w-52"></div>
         <ItemCard image={image2} />
+        <div className="border border-b-gray-300 w-52"></div>
         <ItemCard image={image1} />
       </div>
     </div>

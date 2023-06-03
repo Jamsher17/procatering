@@ -29,7 +29,7 @@ const itemCardVariants = cva("my-4", {
     },
   },
   defaultVariants: {
-    border: true,
+    border: false,
   },
 });
 

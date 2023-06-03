@@ -33,6 +33,7 @@ export interface IWebApp {
   headerColor: string;
   backgroundColor: string;
   onEvent: (event: string, eventHandler: () => void) => void;
+  setHeaderColor: (color: string) => void;
   BackButton: {
     isVisible: boolean;
   };
