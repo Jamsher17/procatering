@@ -2,7 +2,7 @@ import { ButtonHTMLAttributes, FC } from "react";
 import { cva, VariantProps } from "class-variance-authority";
 
 const buttonVariants = cva(
-  "flex flex-1 justify-center items-center rounded-xl border border-slate-100 w-16  font-serif text-2xl font-bold shadow-md bg-lbutton",
+  "flex flex-1 justify-center items-center rounded-xl w-16  font-serif text-2xl font-bold shadow-md bg-lbutton",
   {
     variants: {
       color: {
@@ -16,9 +16,7 @@ const buttonVariants = cva(
         dark: "bg-dbutton",
       },
     },
-    defaultVariants: {
-      mode: "light",
-    },
+    defaultVariants: {},
   }
 );
 

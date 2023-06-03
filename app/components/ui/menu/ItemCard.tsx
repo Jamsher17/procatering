@@ -50,8 +50,8 @@ const ItemCard: FC<ItemCardProps> = ({
   const dispatch = useDispatch();
 
   const [count, setCount] = useState(0);
-  const { webApp } = useTelegram();
   const [isFlipped, setIsFlipped] = useState(false);
+  const { webApp } = useTelegram();
 
   const mode = webApp?.colorScheme ?? "light";
   const priceBg = mode === "light" ? "bg-lbutton" : "bg-dbutton";

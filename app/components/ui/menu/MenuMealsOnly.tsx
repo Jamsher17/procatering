@@ -4,7 +4,7 @@ import ItemCard from "./ItemCard";
 
 //utils
 // import { cva, VariantProps } from "class-variance-authority";
-// import { twMerge } from "tailwind-merge";
+import { twMerge } from "tailwind-merge";
 
 //assets
 import logo from "@images/logo.png";
@@ -19,7 +19,6 @@ import { useEffect, useState } from "react";
 //redux
 import { RootState } from "../../../../redux/store";
 import { useSelector } from "react-redux";
-import { twMerge } from "tailwind-merge";
 
 const MenuMealsOnly = () => {
   const totalBill = useSelector((state: RootState) => state.billCounter.bill);
@@ -63,9 +62,10 @@ const MenuMealsOnly = () => {
           className="drop-shadow-[0px_5px_5px_rgba(0,0,0,0.4)]"
         />
         <div className="flex flex-col w-[100%] items-center justify-center border-b pb-2 shadow-[0_2px_2px_-2px_#333]">
-          <h1 className="text-2xl font-serif text-dmain md:text-3xl">
+          <h1 className={twMerge(["text-2xl font-serif md:text-3xl"])}>
             МЕНЮ НА СЕГОДНЯ
           </h1>
+          <h1>{mode}</h1>
           <h1 className="text-xs md:text-sm italic text-black">
             *в ваш заказ включаются порция хлеба и напиток
           </h1>
