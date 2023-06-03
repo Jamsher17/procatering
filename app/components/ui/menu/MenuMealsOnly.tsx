@@ -65,7 +65,7 @@ const MenuMealsOnly = () => {
           <h1 className={twMerge(["text-2xl font-serif md:text-3xl"])}>
             МЕНЮ НА СЕГОДНЯ
           </h1>
-          <h1>{typeof mode}</h1>
+          <h1>{mode}</h1>
           <h1 className="text-xs md:text-sm italic text-black">
             *в ваш заказ включаются порция хлеба и напиток
           </h1>
