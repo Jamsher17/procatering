@@ -27,6 +27,7 @@ const MenuMealsOnly = () => {
   const { webApp } = useTelegram();
 
   const mode = webApp?.colorScheme ?? "light";
+  webApp?.setHeaderColor("var(--tg-theme-secondary-bg-color)");
   const [m, setM] = useState(mode);
 
   const themeChangeHandler = () => {
