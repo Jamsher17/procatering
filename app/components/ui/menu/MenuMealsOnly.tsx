@@ -26,9 +26,7 @@ const MenuMealsOnly = () => {
   const totalBill = useSelector((state: RootState) => state.billCounter.bill);
   const { webApp } = useTelegram();
 
-  const mode = webApp?.colorScheme;
-  const bg_color = "#C83209";
-  webApp?.setHeaderColor(bg_color);
+  const mode = webApp?.colorScheme ?? "light";
   const [m, setM] = useState(mode);
 
   const themeChangeHandler = () => {

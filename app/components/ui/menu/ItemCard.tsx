@@ -58,37 +58,44 @@ const ItemCard: FC<ItemCardProps> = ({
   return (
     <div className={itemCardVariants({ border, className })} {...props}>
       <div className="flex flex-1 gap-3 ">
-        <ReactCardFlip isFlipped={isFlipped} flipDirection="horizontal">
-          <div
-            style={{}}
-            onClick={() => {
-              setIsFlipped(true);
-            }}
-          >
-            <Image
-              src={image}
-              alt="1"
-              height={200}
-              width={200}
-              className="rounded-md md:shadow-md"
-            />
-          </div>
-          <div
-            className="flex flex-col justify-center items-center"
-            onClick={() => {
-              setIsFlipped(false);
-            }}
-          >
-            <h1 className="absolute z-1 text-white font-forum">ОПИСАНИЕ</h1>
-            <Image
-              src={desc_bg}
-              alt="1"
-              height={200}
-              width={200}
-              className="rounded-md md:shadow-md"
-            />
-          </div>
-        </ReactCardFlip>
+        <div className="flex justify-end">
+          {/* <div className="flex absolute z-10 mx-1.5 my-1.5 px-2.5 bg-dmain rounded-3xl items-center justify-center">
+            <h1 className="flex text-white text-lg font-serif self-center">
+              {count}
+            </h1>
+          </div> */}
+          <ReactCardFlip isFlipped={isFlipped} flipDirection="horizontal">
+            <div
+              style={{}}
+              onClick={() => {
+                setIsFlipped(true);
+              }}
+            >
+              <Image
+                src={image}
+                alt="1"
+                height={200}
+                width={200}
+                className="rounded-md md:shadow-md"
+              />
+            </div>
+            <div
+              className="flex flex-col justify-center items-center"
+              onClick={() => {
+                setIsFlipped(false);
+              }}
+            >
+              <h1 className="absolute z-1 text-white font-forum">ОПИСАНИЕ</h1>
+              <Image
+                src={desc_bg}
+                alt="1"
+                height={200}
+                width={200}
+                className="rounded-md md:shadow-md"
+              />
+            </div>
+          </ReactCardFlip>
+        </div>
 
         <div className="flex flex-col justify-between">
           <Button
