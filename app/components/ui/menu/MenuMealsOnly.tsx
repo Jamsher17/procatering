@@ -16,7 +16,7 @@ import image3 from "@images/baklajani-farshirovanniye.jpg";
 
 //hooks
 import { useTelegram } from "../../../../hooks/webApp/TelegramProvider";
-import { useEffect, useState } from "react";
+import { useRef, useEffect, useState, CSSProperties } from "react";
 
 //redux
 import { RootState } from "../../../../redux/store";
@@ -27,7 +27,6 @@ const MenuMealsOnly = () => {
   const { webApp } = useTelegram();
 
   const mode = webApp?.colorScheme ?? "light";
-  webApp?.setHeaderColor("var(--tg-theme-secondary-bg-color)");
   const [m, setM] = useState(mode);
 
   const themeChangeHandler = () => {
@@ -46,14 +45,14 @@ const MenuMealsOnly = () => {
   }, [totalBill]);
 
   return (
-    <div className="flex flex-col ">
+    <div className="flex flex-col">
       <div
         className={twMerge(
-          "flex flex-col w-[100%] items-center sticky top-0 z-50 pb-2 ",
+          "flex flex-col w-[100%] items-center sticky top-0 z-50 py-4 bg-dmain",
           mode == "dark"
             ? "bg-dmain shadow-[0px_5px_5px_rgba(0,0,0,0.8)]"
             : "bg-lmain shadow-[0px_5px_5px_rgba(0,0,0,0.4)]"
-          // ? "bg-gradient-to-b from-[var(--tg-theme-bg-color)] from-[33%] to-dmain to-[33%] shadow-[0px_5px_5px_rgba(0,0,0,0.8)]"
+          // ?  "bg-gradient-to-b from-[var(--tg-theme-bg-color)] from-[33%] to-dmain to-[33%] shadow-[0px_5px_5px_rgba(0,0,0,0.8)]"
           // : "bg-gradient-to-b from-[white] from-[33%] to-lmain to-[33%] shadow-[0px_5px_5px_rgba(0,0,0,0.4)]"
         )}
       >
@@ -78,7 +77,7 @@ const MenuMealsOnly = () => {
           </h1>
         </div>
       </div>
-      <div className="flex flex-col items-center justify-evenly pt-2">
+      <div className="flex flex-col sticky top-0 items-center justify-evenly pt-2">
         <ItemCard image={image1} />
         <div className="border border-b-gray-300 w-52"></div>
         <ItemCard image={image2} />
