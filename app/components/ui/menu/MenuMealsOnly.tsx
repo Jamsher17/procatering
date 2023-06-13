@@ -52,8 +52,10 @@ const MenuMealsOnly = () => {
           mode == "dark"
             ? // ? "bg-dmain shadow-[0px_5px_5px_rgba(0,0,0,0.8)]"
               // : "bg-lmain shadow-[0px_5px_5px_rgba(0,0,0,0.4)]"
-              "bg-gradient-to-b from-[var(--tg-theme-bg-color)] from-[33%] to-dmain to-[33%] shadow-[0px_5px_5px_rgba(0,0,0,0.8)]"
-            : "bg-gradient-to-b from-[white] from-[33%] to-lmain to-[33%] shadow-[0px_5px_5px_rgba(0,0,0,0.4)]"
+              //   "bg-gradient-to-b from-[var(--tg-theme-bg-color)] from-[33%] to-dmain to-[33%] shadow-[0px_5px_5px_rgba(0,0,0,0.8)]"
+              // : "bg-gradient-to-b from-[white] from-[33%] to-lmain to-[33%] shadow-[0px_5px_5px_rgba(0,0,0,0.4)]"
+              "bg-gradient-to-b from-[var(--tg-theme-bg-color)]  to-dmain shadow-[0px_5px_5px_rgba(0,0,0,0.8)]"
+            : "bg-gradient-to-b from-[white]  to-lmain shadow-[0px_5px_5px_rgba(0,0,0,0.4)]"
         )}
       >
         <Image
